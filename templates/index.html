@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <p class="tag">MACHINE LEARNING PROJECT</p>
+            <h1>Titanic Survival Predictor</h1>
+            <p class="subtitle">
+                Enter passenger details to get a prediction from your trained model.
+            </p>
+        </header>
+
+        <form method="POST">
+            <div class="form-grid">
+
+                <div class="field">
+                    <label for="pclass">Passenger Class</label>
+                    <select id="pclass" name="pclass" required>
+                        <option value="1">1st Class</option>
+                        <option value="2">2nd Class</option>
+                        <option value="3" selected>3rd Class</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="sex">Sex</label>
+                    <select id="sex" name="sex" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" name="age"
+                           min="0" max="100" step="0.1"
+                           placeholder="e.g. 22" required>
+                </div>
+
+                <div class="field">
+                    <label for="fare">Ticket Fare</label>
+                    <input id="fare" type="number" name="fare"
+                           min="0" step="0.01"
+                           placeholder="e.g. 7.25" required>
+                </div>
+
+                <div class="field">
+                    <label for="sibsp">Siblings / Spouses Aboard</label>
+                    <input id="sibsp" type="number" name="sibsp"
+                           min="0" value="0" required>
+                </div>
+
+                <div class="field">
+                    <label for="parch">Parents / Children Aboard</label>
+                    <input id="parch" type="number" name="parch"
+                           min="0" value="0" required>
+                </div>
+
+                <div class="field full-width">
+                    <label for="embarked">Port of Embarkation</label>
+                    <select id="embarked" name="embarked" required>
+                        <option value="S">Southampton (S)</option>
+                        <option value="C">Cherbourg (C)</option>
+                        <option value="Q">Queenstown (Q)</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit">Predict Survival</button>
+        </form>
+
+        {% if error %}
+            <section class="result error" role="alert">
+                <h2>Invalid Input</h2>
+                <p>{{ error }}</p>
+            </section>
+        {% endif %}
+
+        {% if result %}
+            <section class="result {% if 'Likely to Survive' == result %}success{% else %}warning{% endif %}">
+                <p class="tag">MODEL PREDICTION</p>
+                <h2>{{ result }}</h2>
+                <p>Model probability for the predicted class</p>
+                <div class="probability">{{ probability }}%</div>
+                <p class="note">
+                    This is a machine learning estimate, not a guarantee.
+                </p>
+            </section>
+        {% endif %}
+
+        <footer>
+            Powered by your trained Random Forest model
+        </footer>
+    </main>
+
+</body>
+</html>

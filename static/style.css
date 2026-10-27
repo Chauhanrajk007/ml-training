@@ -1,0 +1,158 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 35px 16px;
+    font-family: Arial, sans-serif;
+    background: #f3f5f9;
+    color: #182238;
+}
+
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(20, 35, 60, 0.08);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tag {
+    color: #5268d9;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.subtitle {
+    color: #68738a;
+    line-height: 1.6;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d8deea;
+    border-radius: 8px;
+    background: white;
+    color: #182238;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #8795ed;
+    border-color: #5268d9;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 26px;
+    border: none;
+    border-radius: 9px;
+    background: #4258cc;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3045b2;
+}
+
+.result {
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.result h2 {
+    margin: 8px 0;
+}
+
+.success {
+    background: #e9f8ef;
+    color: #17683b;
+}
+
+.warning {
+    background: #fff1e7;
+    color: #9b451a;
+}
+
+.error {
+    background: #fff0f0;
+    color: #a52222;
+}
+
+.probability {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.note {
+    font-size: 12px;
+}
+
+footer {
+    text-align: center;
+    color: #788195;
+    font-size: 12px;
+    margin-top: 28px;
+}
+
+@media (max-width: 520px) {
+    .container {
+        padding: 22px 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
